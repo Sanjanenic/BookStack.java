@@ -58,6 +58,7 @@ public class BookingQueue
     { int counter=0;
         Node currentNode=front;
 
+//Fall: mit viele elemente
         while(currentNode!=null){
             counter++;
             currentNode=currentNode.getNext();
