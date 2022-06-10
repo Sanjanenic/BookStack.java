@@ -3,14 +3,27 @@ package UE3_BookStack;
 public class BookStack
 {
     // *** Membervariablen ***
-    // TODO
+   private Node top;
+   private Node next;
 
     // *** Getter- und Setter-Methoden ***
 
+    public void setTop(Node top) {
+        this.top = top;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
+    }
+
     public Node getTop()
     {
-        // TODO: Implementierung
-        return null;
+
+        return top;
     }
 
 
@@ -18,13 +31,31 @@ public class BookStack
 
     public void push(String bookTitle)
     {
-        // TODO: Implementierung
+        Node newNode=new Node(bookTitle);
+       //Fall: Stack ist leer:
+        if(top==null){
+          top=newNode;
+        }
+        //Fall: Stack ist nicht leer
+        else{
+        //ovo ne radi    newNode=setNext(top);
+             top=newNode;
+        }
     }
 
     public String pop() throws StackEmptyException
     {
-        // TODO: Implementierung
-        return null;
+
+     //Fall: leer:
+        if(top==null){
+            throw new StackEmptyException();
+        }
+        //Fall: nicht leer
+        else{
+            String returnString=top.getBookTitle(); //Zwischernscpeichern wert
+            top=top.getNext();
+            return returnString;
+        }
     }
 
     public int getCount()
